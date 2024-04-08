@@ -182,3 +182,51 @@ def game_dict():
             ]
         }
     }
+
+data = game_dict()
+
+def num_points_per_game(player_name) :
+    for key in data: #key would be home and away. Key is an arbitrary value
+        team = data[key] #stores the dictionary of the respective team
+        for player in team["players"]:
+            if player_name == player["name"]:
+                return player["points_per_game"]
+
+def player_age(player_name):
+    for key in data: 
+        team = data[key] 
+        for player in team["players"]:
+            if player_name == player["name"]:
+                return player["age"]
+
+def team_colors(team_name):
+    for key in data:
+        team = data[key]
+        if team_name == team["team_name"]:
+            return team["colors"]
+
+
+def team_names():
+    teams = []
+    for key in data:
+        team = data[key]
+        teams.append(team["team_name"])
+    return teams
+        
+
+def player_numbers(team_name):
+    for key in data:
+        team = data[key]
+        if team_name == team["team_name"]:
+            return [player["number"] for player in team["players"]]
+    
+
+def player_stats(player_name):
+    for key in data: 
+        team = data[key] 
+        for player in team["players"]:
+            if player_name == player["name"]:
+                return player
+
+def average_rebounds_by_shoe_brand(shoe_brand):
+    pass
